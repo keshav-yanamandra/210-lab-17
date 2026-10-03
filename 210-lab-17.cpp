@@ -7,6 +7,9 @@
 using namespace std;
 
 const int SIZE = 7;  
+const int MIN = 1;
+const int MAX = 7;
+const int EXIT = 7;
 
 struct Node {
     float value;
@@ -23,6 +26,7 @@ void output(Node *);
 
 int main() {
     Node *head = nullptr;
+    int choice = 0;
     //int count = 0;
 
     // create a linked list of size SIZE with random numbers 0-99
@@ -49,9 +53,9 @@ int main() {
     }
     output(head);
 
-    //testing add node to tail
-    addNodeTail(head, 5);
-    output(head);
+    // testing add node to tail
+    // addNodeTail(head, 5);
+    // output(head);
 
     // // deleting a node
     // cout << "Which node to delete? " << endl;
@@ -82,8 +86,8 @@ int main() {
     // }
 
     //testing delete node
-    deleteNode(head);
-    output(head);
+    // deleteNode(head);
+    // output(head);
 
     // // insert a node
     // Node *current = head;
@@ -122,8 +126,8 @@ int main() {
     // output(head);
 
     //testing insert node
-    insertNode(head);
-    output(head);
+    // insertNode(head);
+    // output(head);
 
 
     // deleting the linked list
@@ -134,12 +138,50 @@ int main() {
     //     current = head;
     // }
     // head = nullptr;
-    
-    output(head);
-    deleteList(head);
 
+
+    while (choice != EXIT) {
+        cout << endl;
+        cout << "1. Add a node to the front" << endl;
+        cout << "2. Add a node to the end" << endl;
+        cout << "3. Delete a node" << endl;
+        cout << "4. Insert a node" << endl;
+        cout << "5. Delete the list" << endl;
+        cout << "6. Print the list" << endl;
+        cout << "7. Exit" << endl;
+        cout << "Choice --> ";
+        cin >> choice;
+
+        while (choice < MIN || choice > MAX) {
+            cout << "Invalid choice. Enter 1-7: ";
+            cin >> choice;
+        }
+
+        if (choice == 1) {
+            //  <-- you fill
+        }
+        else if (choice == 2) {
+            //  <-- you fill
+        }
+        else if (choice == 3) {
+            //  <-- you fill
+        }
+        else if (choice == 4) {
+            //  <-- you fill
+        }
+        else if (choice == 5) {
+            //  <-- you fill
+        }
+        else if (choice == 6) {
+            //  <-- you fill
+        }
+    }
+
+    deleteList(head);
     return 0;
 }
+
+
 
 void output(Node *hd) {
     if (!hd) {
