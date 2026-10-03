@@ -17,12 +17,13 @@ void addNodeFront(Node *&, float);
 void addNodeTail(Node *&, float);
 void deleteNode(Node *&);
 void insertNode(Node *&);
+void deleteList(Node *&);
 
 void output(Node *);
 
 int main() {
     Node *head = nullptr;
-    int count = 0;
+    //int count = 0;
 
     // create a linked list of size SIZE with random numbers 0-99
     // for (int i = 0; i < SIZE; i++) {
@@ -126,14 +127,16 @@ int main() {
 
 
     // deleting the linked list
-    Node *current = head;
-    while (current) {
-        head = current->next;
-        delete current;
-        current = head;
-    }
-    head = nullptr;
+    // Node *current = head;
+    // while (current) {
+    //     head = current->next;
+    //     delete current;
+    //     current = head;
+    // }
+    // head = nullptr;
+    
     output(head);
+    deleteList(head);
 
     return 0;
 }
@@ -252,3 +255,13 @@ void insertNode(Node *&head) {
     }
 }
 
+//delete list function
+void deleteList(Node *&head) {
+    Node *current = head;
+    while (current) {
+        head = current->next;
+        delete current;
+        current = head;
+    }
+    head = nullptr;
+}
