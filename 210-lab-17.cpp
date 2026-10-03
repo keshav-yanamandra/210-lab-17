@@ -13,6 +13,8 @@ struct Node {
     Node *next;
 };
 
+void addNodeFront(Node *&, float);
+
 void output(Node *);
 
 int main() {
@@ -20,21 +22,26 @@ int main() {
     int count = 0;
 
     // create a linked list of size SIZE with random numbers 0-99
-    for (int i = 0; i < SIZE; i++) {
-        int tmp_val = rand() % 100;
-        Node *newVal = new Node;
+    // for (int i = 0; i < SIZE; i++) {
+    //     int tmp_val = rand() % 100;
+    //     Node *newVal = new Node;
         
-        // adds node at head
-        if (!head) {
-            head = newVal;
-            newVal->next = nullptr;
-            newVal->value = tmp_val;
-        }
-        else {
-            newVal->next = head;
-            newVal->value = tmp_val;
-            head = newVal;
-        }
+    //     // adds node at head
+    //     if (!head) {
+    //         head = newVal;
+    //         newVal->next = nullptr;
+    //         newVal->value = tmp_val;
+    //     }
+    //     else {
+    //         newVal->next = head;
+    //         newVal->value = tmp_val;
+    //         head = newVal;
+    //     }
+    // }
+
+    //call the new add node to front function
+    for (int i = 0; i < SIZE; i++) {
+        addNodeFront(head, rand() % 100);
     }
     output(head);
 
@@ -126,7 +133,10 @@ void output(Node *hd) {
     cout << endl;
 }
 
-//function for adding a node to the front
+//function for adding a node to the front. 
+// I am using pass by reference (*&) because the function has to change head pointer. 
+// passing by value did not compile and even if we make it work it will be only inside the function
+
 
 void addNodeFront(Node *&head, float tmp_val) {
     Node *newVal = new Node;
