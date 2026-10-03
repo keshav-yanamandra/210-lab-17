@@ -1,3 +1,8 @@
+// Keshav Yanamandra
+// COMSC-210-5293, Fall 2026
+// Lab 17
+
+
 #include <iostream>
 using namespace std;
 
@@ -119,4 +124,21 @@ void output(Node *hd) {
         current = current->next;
     }
     cout << endl;
+}
+
+//function for adding a node to the front
+
+void addNodeFront(Node *&head, float tmp_val) {
+    Node *newVal = new Node;
+
+    if (!head) {
+        head = newVal;
+        newVal->next = nullptr;
+        newVal->value = tmp_val;
+    }
+    else {
+        newVal->next = head;
+        newVal->value = tmp_val;
+        head = newVal;
+    }
 }
