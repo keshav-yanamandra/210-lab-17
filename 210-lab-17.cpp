@@ -158,23 +158,23 @@ int main() {
         }
 
         if (choice == 1) {
-            //  <-- you fill
+            addNodeFront(head, rand() % 100);
         }
         else if (choice == 2) {
-            //  <-- you fill
+            addNodeTail(head, rand() % 100);
         }
         else if (choice == 3) {
-            //  <-- you fill
+            deleteNode(head);
         }
         else if (choice == 4) {
-            //  <-- you fill
+            insertNode(head);
         }
         else if (choice == 5) {
-            //  <-- you fill
+            deleteList(head);
         }
         else if (choice == 6) {
-            //  <-- you fill
-        }
+            output(head);
+        }    
     }
 
     deleteList(head);
@@ -235,6 +235,11 @@ void addNodeTail(Node *&head, float tmp_val) {
 //copying delete node into a function
 void deleteNode(Node *&head) {
 
+    if (!head) {
+        cout << "Empty list." << endl;
+        return;
+    }
+    
     cout << "Which node to delete? " << endl;
     output(head);
     int entry;
