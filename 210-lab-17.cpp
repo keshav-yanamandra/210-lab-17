@@ -14,6 +14,7 @@ struct Node {
 };
 
 void addNodeFront(Node *&, float);
+void addNodeTail(Node *&, float);
 
 void output(Node *);
 
@@ -43,6 +44,10 @@ int main() {
     for (int i = 0; i < SIZE; i++) {
         addNodeFront(head, rand() % 100);
     }
+    output(head);
+
+    //testing add node to tail
+    addNodeTail(head, 5);
     output(head);
 
     // deleting a node
@@ -150,5 +155,22 @@ void addNodeFront(Node *&head, float tmp_val) {
         newVal->next = head;
         newVal->value = tmp_val;
         head = newVal;
+    }
+}
+
+void addNodeTail(Node *&head, float tmp_val) {
+    Node *newVal = new Node;
+    newVal->value = tmp_val;
+    newVal->next = nullptr;
+
+    if (!head) {
+        head = newVal;
+    }
+    else {
+        Node *current = head;
+        while (current->next) {
+            current = current->next;
+        }
+        current->next = newVal;
     }
 }
